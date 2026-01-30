@@ -17,21 +17,19 @@ export function WorkspaceSetup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-700">
+        <div className="bg-slate-900 rounded-lg p-12 border border-slate-800">
           <div className="flex justify-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl flex items-center justify-center">
-              <PenTool className="w-8 h-8 text-slate-900" strokeWidth={2.5} />
-            </div>
+            <PenTool className="w-12 h-12 text-blue-400" strokeWidth={1.5} />
           </div>
 
-          <h1 className="text-2xl font-bold text-center text-white mb-8">
+          <h1 className="text-xl font-semibold text-center text-white mb-8">
             Name your workspace
           </h1>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-3">
+            <label className="block text-xs font-medium text-slate-400 mb-3">
               Workspace name
             </label>
             <input
@@ -40,7 +38,7 @@ export function WorkspaceSetup() {
               onChange={(e) => setWorkspaceName(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="hello"
-              className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition"
+              className="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded text-white placeholder-slate-500 focus:outline-none focus:border-slate-600 text-sm"
             />
             <p className="text-xs text-slate-500 mt-2">
               (You can always change it later)
@@ -50,7 +48,7 @@ export function WorkspaceSetup() {
           <button
             onClick={handleContinue}
             disabled={!workspaceName.trim()}
-            className="w-full mt-8 px-6 py-3 bg-gradient-to-r from-blue-400 to-purple-400 text-slate-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-400/50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-8 px-6 py-2 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
           >
             Continue
           </button>
