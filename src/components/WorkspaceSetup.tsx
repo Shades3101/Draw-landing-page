@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { PenTool } from 'lucide-react';
 
+const floatKeyframes = `
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+`;
+
 export function WorkspaceSetup() {
   const [workspaceName, setWorkspaceName] = useState('');
   const [focused, setFocused] = useState(false);
@@ -19,6 +30,7 @@ export function WorkspaceSetup() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 flex items-center justify-center p-4 relative overflow-hidden">
+      <style>{floatKeyframes}</style>
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
@@ -28,8 +40,10 @@ export function WorkspaceSetup() {
         <div className="bg-slate-800/40 backdrop-blur-md rounded-2xl p-12 border border-slate-700/50 shadow-2xl">
           <div className="flex justify-center mb-10">
             <div className="relative">
-              <PenTool className="w-16 h-16 text-cyan-400 animate-pulse" strokeWidth={1.5} />
-              <div className="absolute inset-0 bg-cyan-400/20 rounded-full filter blur-xl -z-10"></div>
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500" style={{animation: 'shimmer 2s ease-in-out infinite'}}>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/40 to-blue-400/40 rounded-full filter blur-2xl" style={{width: '100px', height: '100px', top: '-42px', left: '-42px'}}></div>
+              </div>
+              <PenTool className="w-16 h-16 text-cyan-400 relative" strokeWidth={1.5} style={{animation: 'float 3s ease-in-out infinite'}} />
             </div>
           </div>
 
