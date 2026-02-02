@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { Mail, Lock, LogIn } from 'lucide-react';
+import { Mail, Lock, LogIn, ArrowLeft } from 'lucide-react';
 
 interface LoginProps {
   onSignUpClick: () => void;
+  onBackClick?: () => void;
 }
 
-export function Login({ onSignUpClick }: LoginProps) {
+export function Login({ onSignUpClick, onBackClick }: LoginProps) {
   const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,10 +29,19 @@ export function Login({ onSignUpClick }: LoginProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-paper p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome Back</h1>
+        {onBackClick && (
+          <button
+            onClick={onBackClick}
+            className="mb-8 flex items-center gap-2 text-ink hover:text-primary-600 transition-colors font-medium"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </button>
+        )}
+        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <h1 className="text-3xl font-bold text-ink mb-2 font-serif">Welcome Back</h1>
           <p className="text-slate-600 mb-8">Sign in to your account</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">

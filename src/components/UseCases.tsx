@@ -27,14 +27,14 @@ const useCases = [
 
 export function UseCases() {
   return (
-    <section id="use-cases" className="py-20 sm:py-32 bg-gradient-to-b from-gray-50 to-white">
+    <section id="use-cases" className="py-20 sm:py-32 bg-paper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 sm:mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Use Cases
+          <h2 className="text-4xl sm:text-5xl font-bold font-serif text-ink mb-6">
+            Infinite Possibilities
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Teams across industries use Excalidraw for every kind of visual thinking.
+          <p className="text-xl text-ink/70 max-w-2xl mx-auto font-sans">
+            From quick sketches to complex systems, use Excalidraw for every kind of visual thinking.
           </p>
         </div>
 
@@ -44,18 +44,18 @@ export function UseCases() {
             return (
               <div
                 key={index}
-                className="flex gap-6 p-8 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                className="flex gap-6 p-8 bg-white rounded-2xl border-2 border-ink/5 hover:border-primary-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
-                    <Icon className="h-6 w-6 text-blue-600" />
+                  <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-primary-100 rotate-3 group-hover:rotate-0 transition-transform">
+                    <Icon className="h-7 w-7 text-primary-700" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold font-serif text-ink mb-3">
                     {useCase.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-ink/70 leading-relaxed">
                     {useCase.description}
                   </p>
                 </div>
@@ -64,25 +64,27 @@ export function UseCases() {
           })}
         </div>
 
-        <div className="mt-16 sm:mt-20 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-12 border border-blue-200">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="mt-20 bg-ink rounded-[2rem] p-12 text-paper relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative z-10">
             <div>
-              <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-5xl font-bold font-serif text-primary-400 mb-3">
                 100%
               </div>
-              <p className="text-gray-600">Open Source</p>
+              <p className="text-paper/80 font-medium tracking-wide uppercase">Open Source</p>
             </div>
             <div>
-              <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">
+              <div className="text-5xl font-bold font-serif text-primary-400 mb-3">
                 Free
               </div>
-              <p className="text-gray-600">Forever & Always</p>
+              <p className="text-paper/80 font-medium tracking-wide uppercase">Forever & Always</p>
             </div>
             <div>
-              <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-2">
-                0
+              <div className="text-5xl font-bold font-serif text-primary-400 mb-3">
+                Zero
               </div>
-              <p className="text-gray-600">Account Required</p>
+              <p className="text-paper/80 font-medium tracking-wide uppercase">Setup Required</p>
             </div>
           </div>
         </div>

@@ -48,29 +48,32 @@ const testimonials = [
 
 export function Stats() {
   return (
-    <section id="stats" className="py-20 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+    <section id="stats" className="py-20 sm:py-32 bg-paper relative overflow-hidden">
+       {/* Background decoration */}
+       <div className="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full blur-3xl opacity-20 -mr-32 -mt-32"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-b border-ink/10 pb-16">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-blue-50 rounded-lg">
-                    <Icon className="w-6 h-6 text-blue-600" />
+              <div key={index} className="text-center group">
+                <div className="flex justify-center mb-6">
+                  <div className="p-4 bg-white rounded-2xl shadow-sm border border-ink/5 group-hover:-translate-y-1 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-primary-600" />
                   </div>
                 </div>
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
+                <div className="text-4xl sm:text-5xl font-bold font-serif text-ink mb-2">
                   {stat.value}
                 </div>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-ink/60 font-medium uppercase tracking-wider text-sm">{stat.label}</p>
               </div>
             );
           })}
         </div>
 
         <div className="mb-16 sm:mb-20">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold font-serif text-ink text-center mb-16">
             Loved by Teams Worldwide
           </h2>
 
@@ -78,18 +81,20 @@ export function Stats() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-50 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                className="p-8 bg-white rounded-2xl border-2 border-ink/5 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all duration-300 flex flex-col"
               >
-                <p className="text-gray-600 mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold text-sm">
+                <div className="flex-grow">
+                  <p className="text-ink/80 text-lg mb-6 leading-relaxed font-serif italic">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 pt-6 border-t border-ink/5">
+                  <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-700 font-bold text-lg shadow-inner">
                     {testimonial.initials}
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.title}</p>
+                    <p className="font-bold text-ink">{testimonial.name}</p>
+                    <p className="text-sm text-ink/60">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
