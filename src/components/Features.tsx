@@ -44,14 +44,15 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="py-20 sm:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-20 sm:py-32 relative">
+      <div className="absolute inset-0 bg-ink/[0.02] -skew-y-3 transform origin-top-left z-0 h-full w-full"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 sm:mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Features for Modern Teams
+          <h2 className="text-4xl sm:text-5xl font-bold font-serif text-ink mb-6">
+            Designed for Creativity
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need to create, collaborate, and share beautiful diagrams and designs.
+          <p className="text-xl text-ink/70 max-w-2xl mx-auto font-sans">
+            Everything you need to bring your ideas to life, without the complexity of traditional design tools.
           </p>
         </div>
 
@@ -61,17 +62,23 @@ export function Features() {
             return (
               <div
                 key={index}
-                className="group p-8 bg-white border border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300"
+                className="group p-8 bg-white border-2 border-ink/5 rounded-2xl hover:border-primary-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="mb-4 inline-flex p-3 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
-                  <Icon className="w-6 h-6 text-blue-600" />
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <Icon className="w-24 h-24 text-primary-600 transform rotate-12" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
+
+                <div className="relative z-10">
+                  <div className="mb-6 inline-flex p-3 bg-primary-50 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-bold font-serif text-ink mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-ink/70 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             );
           })}

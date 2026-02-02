@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { Mail, Lock, UserPlus } from 'lucide-react';
+import { Mail, Lock, UserPlus, ArrowLeft } from 'lucide-react';
 
 interface SignUpProps {
   onLoginClick: () => void;
+  onBackClick?: () => void;
 }
 
-export function SignUp({ onLoginClick }: SignUpProps) {
+export function SignUp({ onLoginClick, onBackClick }: SignUpProps) {
   const { signUp } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,10 +41,19 @@ export function SignUp({ onLoginClick }: SignUpProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-paper p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Create Account</h1>
+        {onBackClick && (
+          <button
+            onClick={onBackClick}
+            className="mb-8 flex items-center gap-2 text-ink hover:text-primary-600 transition-colors font-medium"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </button>
+        )}
+        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <h1 className="text-3xl font-bold text-ink mb-2 font-serif">Create Account</h1>
           <p className="text-slate-600 mb-8">Join us to start managing rooms</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
